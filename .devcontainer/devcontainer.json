@@ -1,6 +1,8 @@
 {
-  "name": "python-dev",
-  "dockerComposeFile": ["docker-compose.yml"],
+  "name": "python-codes",
+  "dockerComposeFile": [
+    "docker-compose.yml"
+  ],
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
@@ -24,7 +26,7 @@
       ]
     }
   },
-  "service": "python-dev",
+  "service": "python-codes",
   "workspaceFolder": "/src",
   "remoteUser": "vscode",
   "postStartCommand": "python hello.py",

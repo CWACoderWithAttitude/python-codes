@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-  python-dev:
-    container_name: python-dev
-    hostname: python-dev.local
+  python-codes:
+    container_name: python-codes
+    hostname: python-codes.local
     build:
       context: .
     working_dir: /src
@@ -12,7 +12,7 @@ services:
     command: >
       bash -c "sleep infinity"
     networks:
-      python-dev-net:
+      python-codes-net:
 
 networks:
-  python-dev-net:
+  python-codes-net:
