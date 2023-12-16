@@ -29,6 +29,6 @@
   "service": "python-codes",
   "workspaceFolder": "/src",
   "remoteUser": "vscode",
-  "postStartCommand": "python hello.py",
+  "postStartCommand": "python -m pip install -r requirements.txt",
   "shutdownAction": "stopCompose"
 }
