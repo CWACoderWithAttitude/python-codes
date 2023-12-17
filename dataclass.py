@@ -16,4 +16,9 @@ class StarTrekVesselWithDefaultsAndOptional:
     captain: Optional[str] = None
     name: str = 'USS-Enterprise'
     ship_type: str = 'Galaxy-Class'
-    
+
+@dataclass(frozen=True)
+class FrozenVessel:
+    captain: Optional[str] = None
+    name: str = 'USS-Enterprise'
+    ship_type: str = 'Galaxy-Class'

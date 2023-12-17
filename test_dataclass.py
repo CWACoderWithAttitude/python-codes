@@ -1,5 +1,5 @@
 import pytest
-from .dataclass import StarTrekVesselDataClassNoDefaults, StarTrekVesselWithDefaults, StarTrekVesselWithDefaultsAndOptional
+from .dataclass import StarTrekVesselDataClassNoDefaults, StarTrekVesselWithDefaults, StarTrekVesselWithDefaultsAndOptional, FrozenVessel
 
 def test_init_dataclass_wo_properties():
     """Expect error because properties on default class have no default value.
@@ -19,7 +19,8 @@ def test_dataclass_with_defaults():
     v = StarTrekVesselWithDefaults()
     assert 'USS-Enterprise' == v.name
     assert 'Galaxy-Class' == v.ship_type
-    
+
+from dataclasses import FrozenInstanceError
 def test_dc_without_optional():
     """Here the expected value for optional property is set None
     """
@@ -42,6 +43,13 @@ def test_dataclass_string_representation():
     t = StarTrekVesselWithDefaultsAndOptional(captain='Jean-Luc Picard')
     assert "StarTrekVesselWithDefaultsAndOptional(captain='Jean-Luc Picard', name='USS-Enterprise', ship_type='Galaxy-Class')" == str(t)
     
-    
+def test_frozen_vessel():
+    expected_error_msg = "cannot assign to field 'name'"
+    t = FrozenVessel()
+    assert 'USS-Enterprise' == t.name
+    with pytest.raises (FrozenInstanceError) as excinfo:
+        t.name = 'USS-Stargazer'
+        assert 'USS-Stargazer' == t.name
+    assert str(excinfo.value) == expected_error_msg
     
     
