@@ -35,3 +35,13 @@ def test_dc_with_optional():
     assert 'USS-Enterprise' == t.name
     assert 'Galaxy-Class' == t.ship_type
     assert 'Jean-Luc Picard' == t.captain
+
+def test_dataclass_string_representation():
+    """Dataclasses give us a useful default string representation
+    """
+    t = StarTrekVesselWithDefaultsAndOptional(captain='Jean-Luc Picard')
+    assert "StarTrekVesselWithDefaultsAndOptional(captain='Jean-Luc Picard', name='USS-Enterprise', ship_type='Galaxy-Class')" == str(t)
+    
+    
+    
+    
