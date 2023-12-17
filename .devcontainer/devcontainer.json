@@ -22,7 +22,8 @@
         "ms-azuretools.vscode-docker",
         "PKief.material-icon-theme",
         "streetsidesoftware.code-spell-checker",
-        "wesbos.theme-cobalt2"
+        "wesbos.theme-cobalt2",
+        "asciidoctor.asciidoctor-vscode"
       ]
     }
   },
