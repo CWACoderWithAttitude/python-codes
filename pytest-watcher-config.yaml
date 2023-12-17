@@ -1,0 +1,8 @@
+autoClear: false
+extensions:
+- '*.py'
+ignore: []
+onFail: ''
+onPass: ''
+passthrough: []
+verbose: false
