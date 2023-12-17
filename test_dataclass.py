@@ -1,5 +1,5 @@
 import pytest
-from .dataclass import StarTrekVesselDataClassNoDefaults, StarTrekVesselDataClassWithDefaults, StarTrekVesselWithDefaultsAndOptional
+from .dataclass import StarTrekVesselDataClassNoDefaults, StarTrekVesselWithDefaults, StarTrekVesselWithDefaultsAndOptional
 
 def test_init_dataclass_wo_properties():
     """Expect error because properties on default class have no default value.
@@ -14,17 +14,23 @@ def test_init_dataclass_with_all_properties():
     StarTrekVesselDataClassNoDefaults(name='Enterprise', ship_type="Enterprise")
 
 def test_dataclass_with_defaults():
-    """No error because all properties have default values
+    """Dataclass has default values for properties.
     """
-    StarTrekVesselDataClassWithDefaults()
+    v = StarTrekVesselWithDefaults()
+    assert 'USS-Enterprise' == v.name
+    assert 'Galaxy-Class' == v.ship_type
     
 def test_dc_without_optional():
+    """Here the expected value for optional property is set None
+    """
     t = StarTrekVesselWithDefaultsAndOptional()
     assert 'USS-Enterprise' == t.name
     assert 'Galaxy-Class' == t.ship_type
     assert None == t.captain
 
 def test_dc_with_optional():
+    """Here the expected value for given optional property is verified
+    """
     t = StarTrekVesselWithDefaultsAndOptional(captain='Jean-Luc Picard')
     assert 'USS-Enterprise' == t.name
     assert 'Galaxy-Class' == t.ship_type

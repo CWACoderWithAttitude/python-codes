@@ -7,7 +7,7 @@ class StarTrekVesselDataClassNoDefaults:
     ship_type: str
     
 @dataclass
-class StarTrekVesselDataClassWithDefaults:
+class StarTrekVesselWithDefaults:
     name: str = 'USS-Enterprise'
     ship_type: str = 'Galaxy-Class'
 
